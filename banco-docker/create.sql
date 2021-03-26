@@ -1,18 +1,19 @@
-CREATE TABLE integrantes(
-    id TEXT PRIMARY KEY,
+CREATE TABLE integrante(
+    id serial PRIMARY KEY,
     nome VARCHAR(50),
-    dataNascimento Date,
-    cpf VARCHAR(11)
+    dataDeNascimento DATE,
+    CPF VARCHAR(15)
 );
-CREATE TABLE bandas(
-    id TEXT PRIMARY KEY,
-    localDeOrigem TEXT,
-    nomeFantasia TEXT
+CREATE TABLE banda(
+    id SERIAL PRIMARY KEY,
+    localDeOrigem VARCHAR(100),
+    nomeFantasia VARCHAR(100)
 );
-CREATE TABLE integrantesBandas(
-    id TEXT PRIMARY KEY,
-    idIntegrante TEXT,
-    idBanda TEXT,
-    FOREIGN KEY (idIntegrante) REFERENCES integrantes(id),
-    FOREIGN KEY (idBanda) REFERENCES bandas(id)
+CREATE TABLE integrante_banda(
+    id_banda int,
+    id_integrante int,
+    FOREIGN KEY (id_banda) REFERENCES banda(id) ON DELETE RESTRICT,
+    FOREIGN KEY (id_integrante) REFERENCES integrante(id) ON DELETE 
+    RESTRICT,
+    PRIMARY KEY(id_banda,id_integrante)
 )
