@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../:\Curso ADS\DAC\Dac Atividade Colaborativa 1\Atividade-DAC-1-Docker-e-Java-Server-Faces\app-bandas\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
