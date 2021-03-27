@@ -1,11 +1,11 @@
-package ifpb.edu.br.app_bandas;
+package ifpb.edu.br.app_bandas.web;
 
 import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "controlador", value = "/controlador")
+public class Controlador extends HttpServlet {
     private String message;
 
     public void init() {

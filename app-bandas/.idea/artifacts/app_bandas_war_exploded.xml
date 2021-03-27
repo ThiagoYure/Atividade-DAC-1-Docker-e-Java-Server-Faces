@@ -13,6 +13,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="app-bandas" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4.1212.jre7" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/app-bandas-v1/META-INF/MANIFEST.MF" />
