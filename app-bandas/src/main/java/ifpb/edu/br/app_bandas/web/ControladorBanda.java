@@ -13,4 +13,18 @@ import java.io.Serializable;
 public class ControladorBanda implements Serializable {
     private Banda banda = new Banda();
     private BandaJDBC bandaJDBC = new BandaJDBC();
+    private String retorno = "";
+
+    public String test(){
+        retorno = bandaJDBC.test();
+        return null;
+    }
+
+    public String getRetorno() {
+        return retorno;
+    }
+
+    public void setRetorno(String retorno) {
+        this.retorno = retorno;
+    }
 }

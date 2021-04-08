@@ -8,6 +8,10 @@
     <ui:composition template="template.xhtml">
         <ui:define name="template">
             <h1>Home!</h1>
+            <h:form>
+                <h:commandButton value="testar" action="#{controladorBanda.test()}"/>
+                <h:outputText value="#{controladorBanda.retorno}"></h:outputText>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
