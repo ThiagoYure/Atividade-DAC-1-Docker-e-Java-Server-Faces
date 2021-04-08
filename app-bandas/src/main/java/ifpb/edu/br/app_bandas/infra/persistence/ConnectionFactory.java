@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConnectionFactory {
-<<<<<<< HEAD
+/*
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
 
         Class.forName("org.postgresql.Driver");
@@ -16,7 +16,6 @@ public class ConnectionFactory {
                     "jdbc:postgresql://host-banco:5432/app-bandas",
                     "usuario","1234");
 
-=======
 
     private Connection connection;
     private static String URL;
@@ -46,21 +45,20 @@ public class ConnectionFactory {
 
     public Connection getConexao() {
         return this.connection;
->>>>>>> d8eb9f8c5942386e6868c85aa8c8112434a4a55c
     }
+*/
+   public static Connection getConnection() throws ClassNotFoundException, SQLException {
 
-//    public static Connection getConnection() throws ClassNotFoundException, SQLException {
-//
-//        try {
-//            Class.forName("org.postgresql.Driver");
-//            return DriverManager.getConnection(
-//                    "jdbc:postgresql://host-banco:5432/app-bandas",
-//                    "usuario","1234"
-//            );
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE,null,ex);
-//        }
-//
-//        return null;
-//    }
+      try {
+            Class.forName("org.postgresql.Driver");
+            return DriverManager.getConnection(
+                    "jdbc:postgresql://host-banco:5432/app-bandas",
+                    "usuario","1234"
+            );
+      } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE,null,ex);
+      }
+
+      return null;
+   }
 }

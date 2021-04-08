@@ -3,25 +3,20 @@ package ifpb.edu.br.app_bandas.infra.persistence;
 import ifpb.edu.br.app_bandas.domain.Banda;
 import ifpb.edu.br.app_bandas.domain.Integrante;
 
-<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.SQLException;
-=======
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
->>>>>>> d8eb9f8c5942386e6868c85aa8c8112434a4a55c
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class BandaJDBC {
-    private ConnectionFactory jdcbConnection;
 
     public BandaJDBC() {
-        this.jdcbConnection = new ConnectionFactory();
+        //this.jdcbConnection = new ConnectionFactory();
     }
 
-<<<<<<< HEAD
     public String test(){
         try {
             Connection con = ConnectionFactory.getConnection();
@@ -35,8 +30,8 @@ public class BandaJDBC {
     }
 
     public void nova(Banda banda){
-=======
-    public void nova(Banda banda) throws Exception {
+
+    /*public void nova(Banda banda) throws Exception {
         this.jdcbConnection.conectar();
         String query = "INSERT INTO banda (localDeOrigem, nomeFantasia)" + "VALUES (?, ?,)";
         try {
@@ -50,10 +45,10 @@ public class BandaJDBC {
         }finally {
             this.jdcbConnection.desconectar();
         }
->>>>>>> d8eb9f8c5942386e6868c85aa8c8112434a4a55c
+>>>>>>> d8eb9f8c5942386e6868c85aa8c8112434a4a55c*/
 
     }
-    public void inserirIntegrantes (List<Integrante> integrantes, int bandaId) throws Exception {
+    /*public void inserirIntegrantes (List<Integrante> integrantes, int bandaId) throws Exception {
         this.jdcbConnection.conectar();
         String query = "INSERT INTO integrante_banda (id_banda, id_integrante)" + "VALUES (?, ?,)";
         integrantes.forEach(integrante -> {
@@ -68,9 +63,9 @@ public class BandaJDBC {
             }
         });
         jdcbConnection.desconectar();
-    }
+    }*/
 
-    public List<Banda> buscarTodos() throws Exception {
+    /*public List<Banda> buscarTodos() throws Exception {
         this.jdcbConnection.conectar();
         String query = "SELECT * FROM banda";
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
@@ -128,5 +123,5 @@ public class BandaJDBC {
         this.jdcbConnection.desconectar();
 
         return Optional.ofNullable(banda);
-    }
+    }*/
 }
