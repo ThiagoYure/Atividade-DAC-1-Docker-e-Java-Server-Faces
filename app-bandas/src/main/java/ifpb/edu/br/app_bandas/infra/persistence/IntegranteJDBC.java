@@ -15,14 +15,14 @@ import java.util.Optional;
 
 public class IntegranteJDBC {
 
-    private ConnectionFactory jdcbConnection;
+    //private ConnectionFactory jdcbConnection;
 
     public IntegranteJDBC() {
-        this.jdcbConnection = new ConnectionFactory();
+        //this.jdcbConnection = new ConnectionFactory();
     }
 
     public void novo(Integrante integrante) throws Exception {
-        this.jdcbConnection.conectar();
+        /*this.jdcbConnection.conectar();
         String query = "INSERT INTO integrante (nome, dataDeNascimento, CPF)" + "VALUES (?, ?, ?)";
         try {
             PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
@@ -36,11 +36,11 @@ public class IntegranteJDBC {
         }finally {
             this.jdcbConnection.desconectar();
         }
-
+        */
     }
 
-    public List<Integrante> todos()throws Exception {
-        this.jdcbConnection.conectar();
+    public void todos()throws Exception {
+        /*this.jdcbConnection.conectar();
         String query = "SELECT * FROM integrante";
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
         ResultSet result = statement.executeQuery();
@@ -63,11 +63,11 @@ public class IntegranteJDBC {
         }
         this.jdcbConnection.desconectar();
 
-        return integrantes;
+        return integrantes;*/
     }
 
     public void atualizar(Integrante integrante)throws Exception {
-        this.jdcbConnection.conectar();
+        /*this.jdcbConnection.conectar();
         String sql = "UPDATE integrante SET nome = ? , dataDeNascimento = ? WHERE id = ?";
 
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(sql);
@@ -78,21 +78,21 @@ public class IntegranteJDBC {
 
         statement.executeUpdate();
 
-        this.jdcbConnection.desconectar();
+        this.jdcbConnection.desconectar();*/
     }
 
     public void excluir(int integranteId)throws Exception {
-        this.jdcbConnection.conectar();
+        /*this.jdcbConnection.conectar();
         String sql = "DELETE FROM integrante WHERE id = ?";
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(sql);
         statement.setLong(1, integranteId);
         statement.executeUpdate();
-        this.jdcbConnection.desconectar();
+        this.jdcbConnection.desconectar();*/
     }
 
-    public Optional<Object> localizarPorID(int integranteId) throws Exception {
+    public void localizarPorID(int integranteId) throws Exception {
 
-        this.jdcbConnection.conectar();
+        /*this.jdcbConnection.conectar();
         String sql = "SELECT * FROM integrante WHERE id = ?";
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(sql);
         statement.setLong(1, integranteId);
@@ -113,7 +113,7 @@ public class IntegranteJDBC {
         }
         this.jdcbConnection.desconectar();
 
-        return Optional.ofNullable(integrante);
+        return Optional.ofNullable(integrante);*/
     }
 
 }
