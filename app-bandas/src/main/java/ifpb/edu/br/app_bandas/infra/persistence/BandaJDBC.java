@@ -1,13 +1,11 @@
 package ifpb.edu.br.app_bandas.infra.persistence;
 
 import ifpb.edu.br.app_bandas.domain.Banda;
+import ifpb.edu.br.app_bandas.domain.Integrante;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,8 +23,8 @@ public class BandaJDBC {
             PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
             statement.setString(1, banda.getLocalDeOrigem());
             statement.setString(2, banda.getNomeFantasia());
-
             statement.executeUpdate();
+            inserirIntegrantes(banda.getIntegrantes(), banda.getId());
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -34,25 +32,41 @@ public class BandaJDBC {
         }
 
     }
+    public void inserirIntegrantes (List<Integrante> integrantes, int bandaId) throws Exception {
+        this.jdcbConnection.conectar();
+        String query = "INSERT INTO integrante_banda (id_banda, id_integrante)" + "VALUES (?, ?,)";
+        integrantes.forEach(integrante -> {
+            try {
+                PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
+                statement.setInt(1, integrante.getId());
+                statement.setInt(2, bandaId);
+
+                statement.executeUpdate();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+        jdcbConnection.desconectar();
+    }
 
     public List<Banda> buscarTodos() throws Exception {
         this.jdcbConnection.conectar();
-        String query = "SELECT * FROM usuario";
+        String query = "SELECT * FROM banda";
         PreparedStatement statement = this.jdcbConnection.getConexao().prepareStatement(query);
         ResultSet result = statement.executeQuery();
-        List<Banda> users = new ArrayList<>();
+        List<Banda> bandas = new ArrayList<>();
+        Banda banda = null;
         while (result.next()) {
-            Banda banda = new Banda();
+            banda = new Banda();
             banda.setId(result.getInt("id"));
             banda.setLocalDeOrigem(result.getString("localDeOrigem"));
             banda.setNomeFantasia("nomeFantasia");
-            users.add(banda);
+            bandas.add(banda);
         }
         this.jdcbConnection.desconectar();
 
-        return users;
+        return bandas;
     }
-
     public void atualizar(Banda banda) throws Exception {
         this.jdcbConnection.conectar();
         String sql = "UPDATE banda SET localDeOrigem = ? , nomeFantasia = ? WHERE id = ?";
