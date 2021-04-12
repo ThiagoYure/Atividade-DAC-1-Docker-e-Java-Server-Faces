@@ -9,8 +9,8 @@
         <ui:define name="template">
             <h1>Home!</h1>
             <h:form>
-                <h:commandButton value="testar" action="#{controladorBanda.test()}"/>
-                <h:outputText value="#{controladorBanda.retorno}"></h:outputText>
+                <h:commandLink action="Banda/bandaHome">Bandas</h:commandLink> <br/>
+                <h:commandLink action="Integrante/integrantesHome">Artistas</h:commandLink>
             </h:form>
         </ui:define>
     </ui:composition>

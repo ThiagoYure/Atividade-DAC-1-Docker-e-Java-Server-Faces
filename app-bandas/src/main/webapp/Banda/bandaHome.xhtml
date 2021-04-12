@@ -8,6 +8,12 @@
     <ui:composition template="../template.xhtml">
         <ui:define name="template">
             <h1>Home Bandas!</h1>
+
+            <h:form>
+                <h:commandLink action="list">Lista de Bandas</h:commandLink><br/>
+                <h:commandLink action="edit">Adicionar Bandas</h:commandLink>
+            </h:form>
+
         </ui:define>
     </ui:composition>
 </html>

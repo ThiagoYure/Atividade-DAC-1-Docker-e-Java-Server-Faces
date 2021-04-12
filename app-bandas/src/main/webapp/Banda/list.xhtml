@@ -8,6 +8,34 @@
     <ui:composition template="../template.xhtml">
         <ui:define name="template">
             <h1>listagem de Bandas!</h1>
+            <h:form>
+                <h:dataTable var="group" value="#{controladorBanda.todas()}" class="striped highlight">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        #{group.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nome</f:facet>
+                        #{group.nomeFantasia}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Local de Origem</f:facet>
+                        #{group.localDeOrigem}
+                    </h:column>
+                    <h:column >
+                        <f:facet name="header">Integrantes</f:facet>
+                        <h:dataTable var="integrante" value="#{group.integrantes}">
+                            <h:column>#{integrante.nome}, </h:column>
+                        </h:dataTable>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="x" action="#{controladorBanda.remover(banda.id)}" class="btn"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="editar" action="edit" class="btn"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>

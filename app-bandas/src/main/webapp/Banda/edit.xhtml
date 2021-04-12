@@ -8,6 +8,24 @@
     <ui:composition template="../template.xhtml">
         <ui:define name="template">
             <h1>Edição de Bandas!</h1>
+
+            <h:form>
+                <h:outputLabel for="nome" value="Nome" />
+                <h:inputText value="#{controladorBanda.banda.nomeFantasia}"
+                             id="nome"/>
+                <h:outputLabel for="origem" value="Local de Origem" />
+                <h:inputText value="#{controladorBanda.banda.localDeOrigem}"
+                             id="origem"/>
+
+                <h:selectOneMenu value="#{controladorBanda.banda.integrantes}"
+                                 id="integ" styleClass="orange-text">
+                    <f:selectItems value="#{controladorIntegrante.todos()}"
+                                   var="integr" itemLabel="#{integr.nome}" />
+                </h:selectOneMenu>
+
+                <h:commandButton id="comando" styleClass="btn" value="adicionar" action="#{controladorBanda.salvar()}"/>
+<!--                <h:commandLink id="comando-link" value="lista" action="list" immediate="true"/>-->
+            </h:form>
         </ui:define>
     </ui:composition>
 </html>
